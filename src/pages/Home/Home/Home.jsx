@@ -1,31 +1,34 @@
 import React from 'react';
-import { Carousel, Image } from 'react-bootstrap';
-import banner1 from '../../../assets/banner1.jpg'
-import banner2 from '../../../assets/banner2.jpg'
-import banner3 from '../../../assets/banner3.jpg'
 import './Home.css';
+import Banner from '../../Banner/Banner';
+import { Container, Row } from 'react-bootstrap';
+import { useLoaderData } from 'react-router-dom';
+import Chefs from '../Chefs/Chefs';
 
 const Home = () => {
+    const thaiChefs = useLoaderData();
+    const allChefs = thaiChefs.thai_chefs;
+    console.log(allChefs);
     return (
         <div>
             {/* Banner */}
-            <div className='position-relative'>
-            <Carousel>
-                <Carousel.Item className='item' style={{height: "700px"}}>
-                    <Image src={banner1} fluid text="First slide" className='opacity-75'/>
-                </Carousel.Item>
-                <Carousel.Item className='item' style={{height: "700px"}}>
-                    <Image src={banner2} fluid text="First slide" className='opacity-75' />
-                </Carousel.Item>
-                <Carousel.Item className='item' style={{height: "700px"}}>
-                <Image src={banner3} fluid text="First slide" className='opacity-75' />
-                </Carousel.Item>
-            </Carousel>
-            <div className='banner-des'>
-                <h2 className='text-white display-2 fw-bold'>Welcome to! Thai Orchid Chefs</h2>
-                <p className='text-white'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error, accusamus autem fugiat ad officiis quisquam. Nihil facilis qui assumenda eaque.</p>
-            </div>
-            </div>
+            <Banner></Banner>
+
+            <Container>
+                <div style={{marginTop: "100px"}}>
+                    <h2 className='display-5 fw-bold text-center mb-4'>Our Chefs</h2>
+                    <Row xs={1} md={2} lg = {3} className="g-4">
+                    {
+                        allChefs.map(chef => <Chefs
+                        key={chef.id}
+                        chef={chef}
+                        >
+
+                        </Chefs>)
+                    }
+                    </Row>
+                </div>
+            </Container>
         </div>
     );
 };
