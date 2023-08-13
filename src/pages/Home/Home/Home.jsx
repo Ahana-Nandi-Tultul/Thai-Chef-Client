@@ -4,6 +4,7 @@ import Banner from '../../Banner/Banner';
 import { Container, Row } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import Chefs from '../Chefs/Chefs';
+import Features from '../Features/Features';
 
 const Home = () => {
     const thaiChefs = useLoaderData();
@@ -15,7 +16,7 @@ const Home = () => {
             <Banner></Banner>
 
             <Container>
-                <div style={{marginTop: "100px"}}>
+                <div style={{marginTop: "150px"}}>
                     <h2 className='display-5 fw-bold text-center mb-4'>Our Chefs</h2>
                     <Row xs={1} md={2} lg = {3} className="g-4">
                     {
@@ -28,6 +29,7 @@ const Home = () => {
                     }
                     </Row>
                 </div>
+                <Features></Features>
             </Container>
         </div>
     );
