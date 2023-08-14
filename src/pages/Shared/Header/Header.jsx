@@ -8,7 +8,7 @@ import { Tooltip } from 'react-tooltip'
 
 const Header = () => {
   const {user, logout} = useContext(AuthContext);
-  console.log(user?.photoURL);
+  // console.log(user?.photoURL);
   const photo = user?.photoURL;
   const name = user?.displayName;
   const handleLogout = () => {

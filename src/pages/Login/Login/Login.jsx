@@ -2,13 +2,15 @@ import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
-    const {login} = useContext(AuthContext);
+    const {login, googleLogin, githubLogin} = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
+    const from = location?.state?.from?.pathname || '/';
     // console.log(location);
     const handleLogin = event => {
         event.preventDefault();
@@ -21,7 +23,7 @@ const Login = () => {
         setError('');
         setSuccess('');
 
-        const from = location?.state?.from?.pathname || '/';
+       
 
         login(email, password)
         .then(result => {
@@ -34,6 +36,32 @@ const Login = () => {
         .catch(error => {
             console.log(error);
             setError(error.message);
+        })
+    }
+
+    const handleGoogleLogin = (event) => {
+        event.preventDefault()
+        googleLogin()
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            navigate(from, {replace: true});
+        })
+        .catch(error => {
+            console.log(error)
+            setError(error.message);
+        })
+    }
+    const handleGithubLogin = () => {
+        githubLogin()
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser)
+            navigate(from, {replace: true});
+        })
+        .catch(error => {
+            console.log(error.message);
+            setError(error.message)
         })
     }
     return (
@@ -60,7 +88,14 @@ const Login = () => {
                 </Form.Text>
                 <p><small className='text-danger'>{error}</small></p>
                 <p><small className='text-success'>{success}</small></p>
+                <Button onClick={handleGoogleLogin} className='w-100' variant="outline-primary mb-2">
+                    <FaGoogle/> Google Sign-in
+                </Button>
+                <Button className='w-100' variant="outline-secondary" onClick={handleGithubLogin}>
+                    <FaGithub/> Github Sign-in
+                </Button>
             </Form>
+
         </Container>
     );
 };
