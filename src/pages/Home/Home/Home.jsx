@@ -11,7 +11,7 @@ import Speciality from '../Speciality/Speciality';
 const Home = () => {
     const thaiChefs = useLoaderData();
     const allChefs = thaiChefs.thai_chefs;
-    console.log(allChefs);
+    // console.log(allChefs);
     return (
         <div>
             {/* Banner */}

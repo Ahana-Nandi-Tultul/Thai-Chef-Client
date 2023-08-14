@@ -5,9 +5,14 @@ import { Spinner } from 'react-bootstrap';
 
 const PrivateRoute = ({children}) => {
     const {user, loading} = useContext(AuthContext);
+    console.log(loading);
     const location = useLocation();
     if(loading){
-        return <Spinner animation="border" variant="success" />
+        return (
+            <div className='d-flex justify-content-center  my-5'>
+                <Spinner animation="border" variant="success"/>
+            </div>
+        )
     }
     if(user) {
         return children;

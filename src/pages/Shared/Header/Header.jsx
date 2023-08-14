@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import { Button, Container, Image, Nav, Navbar } from 'react-bootstrap';
 import logo from "../../../assets/logo.png";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { FaUserCircle } from 'react-icons/fa';
-import { Tooltip } from 'react-tooltip'
+import { Tooltip } from 'react-tooltip';
+import './Header.css';
 
 const Header = () => {
   const {user, logout} = useContext(AuthContext);
@@ -28,9 +29,8 @@ const Header = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mx-auto">
-            <Link to="/" className='text-secondary fs-5 text-decoration-none me-2'>Home</Link>
-            <Link className='text-secondary fs-5 text-decoration-none me-2'>Blog</Link>
-            <Link className='text-secondary fs-5 text-decoration-none me-2'>About Us</Link>
+            <NavLink to='/'   className={({ isActive }) => isActive ? "active" : "text-secondary fs-5 text-decoration-none me-2" }>Home</NavLink>
+            <NavLink to='/blog'   className={({ isActive }) => isActive ? "active" : "text-secondary fs-5 text-decoration-none me-2" }>Blog</NavLink>            
           </Nav>
           <Nav className='d-flex align-items-center'>
             
