@@ -6,7 +6,6 @@ import Chefs from '../Chefs/Chefs';
 import Features from '../Features/Features';
 import Banner from '../Banner/Banner';
 import Speciality from '../Speciality/Speciality';
-import Footer from '../../Shared/Footer/Footer';
 
 const Home = () => {
     const thaiChefs = useLoaderData();
@@ -33,7 +32,6 @@ const Home = () => {
                 </div>
                 <Features></Features>
             </Container>
-            <Footer></Footer>
         </div>
     );
 };

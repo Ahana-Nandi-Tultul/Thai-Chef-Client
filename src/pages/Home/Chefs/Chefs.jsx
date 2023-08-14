@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
 import { FaThumbsUp } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Chefs = ({chef}) => {
     const {id, name, picture, years_of_experience, number_of_recipes, number_of_likes, description} = chef;
@@ -25,7 +26,7 @@ const Chefs = ({chef}) => {
                     <span className='ms-2'>{`${parseInt(number_of_likes) > 1000 ? number_of_likes/1000 + 'k' : number_of_likes}`}</span>
                 </div>
                 <div>
-                    <Button variant="success">View Recipes</Button>
+                    <Link to={`/recipes/${id}`}><Button variant="success">View Recipes</Button></Link>
                 </div>
             </Card.Footer>
           </Card>
