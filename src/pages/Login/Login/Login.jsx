@@ -52,11 +52,11 @@ const Login = () => {
                     <Form.Control type="password" name="password" placeholder="Password" required/>
                 </Form.Group>
                 <Button className='w-100' variant="success" type="submit">
-                    Register
+                    Login
                 </Button>
                 <Form.Text className="text-muted">
                     New to ThaiChefs? Please <Link to="/register" className='text-primary
-                     text-decoration-none mt-5'>Login</Link>
+                     text-decoration-none mt-5'>Register</Link>
                 </Form.Text>
                 <p><small className='text-danger'>{error}</small></p>
                 <p><small className='text-success'>{success}</small></p>

@@ -1,11 +1,15 @@
 import React, { useContext } from 'react';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Image, Nav, Navbar } from 'react-bootstrap';
 import logo from "../../../assets/logo.png";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
+import { FaUserCircle } from 'react-icons/fa';
+
 
 const Header = () => {
   const {user, logout} = useContext(AuthContext);
+  console.log(user?.photoURL);
+  const photo = user?.photoURL;
   const handleLogout = () => {
     logout()
     .then(() =>{})
@@ -31,7 +35,10 @@ const Header = () => {
             
             {
               user  ?<>
-              <Nav.Link href="#deets">Profile</Nav.Link>
+              {
+                photo ? <Image src={photo} roundedCircle style={{height: "50px",width: "50px"}} className='me-2' /> :
+                <FaUserCircle style={{height: "50px",width: "50px"}} className='me-2'/>
+              }
               <Button variant='secondary' onClick={handleLogout}>signout</Button>
               </> :
               <Link to="/login"><Button variant='secondary'>Login</Button></Link> 
