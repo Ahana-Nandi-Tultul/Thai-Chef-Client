@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
-import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 
 const Recipe = ({recipe}) => {
-    const {id, cooking_method, image, ingredients, name, rating
-    } = recipe;
+    const {id, cooking_method, image, ingredients, name, rating} = recipe;
+    const [favo, setFavo] = useState(false)
+    const notify = () => {
+        toast('This Recipe is your Favourite')
+        setFavo(true)
+    };
     return (
         <Col key={id}>
           <Card>
@@ -30,7 +34,11 @@ const Recipe = ({recipe}) => {
                         />
                     <span>{rating}</span>
                     </div>
-                   <Link to={`book/:${id}`}><Button variant="success">Favourite</Button></Link>
+                    {
+                        favo ? <Button variant="success" onClick={notify} disabled>Favourite</Button> :
+                        <Button variant="success" onClick={notify} >Favourite</Button>
+                    }
+                   
                 </div>
             </Card.Body>
           </Card>

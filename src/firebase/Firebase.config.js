@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAbqpydIlNOxoM4eryFmEwyj3XbniQ9sw0",
-  authDomain: "thai-orchid-bristo-client.firebaseapp.com",
-  projectId: "thai-orchid-bristo-client",
-  storageBucket: "thai-orchid-bristo-client.appspot.com",
-  messagingSenderId: "1087976890558",
-  appId: "1:1087976890558:web:bbab9de9afd4010361feef"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID
 };
 
 // Initialize Firebase

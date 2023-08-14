@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import logo from "../../../assets/logo.png";
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -19,9 +20,7 @@ const Header = () => {
           </Nav>
           <Nav className='d-flex align-items-center'>
             <Nav.Link href="#deets">Profile</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              <Button variant='secondary'>Login</Button>
-            </Nav.Link>
+             <Link to="/register"><Button variant='secondary'>Login</Button></Link> 
           </Nav>
         </Navbar.Collapse>
       </Container>

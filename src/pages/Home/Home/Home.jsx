@@ -7,6 +7,7 @@ import Features from '../Features/Features';
 import Banner from '../Banner/Banner';
 import Speciality from '../Speciality/Speciality';
 
+
 const Home = () => {
     const thaiChefs = useLoaderData();
     const allChefs = thaiChefs.thai_chefs;
@@ -31,6 +32,7 @@ const Home = () => {
                     </Row>
                 </div>
                 <Features></Features>
+                
             </Container>
         </div>
     );
