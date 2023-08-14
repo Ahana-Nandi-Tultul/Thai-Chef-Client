@@ -38,6 +38,8 @@ const Register = () => {
             })
             const loggedUser = result.user;
             console.log(loggedUser);
+            setSuccess('Success!! You have created account successfully.')
+            form.reset();
         })
         .catch(error => {
             console.log(error);

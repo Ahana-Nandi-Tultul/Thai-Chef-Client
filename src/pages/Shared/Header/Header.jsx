@@ -20,7 +20,7 @@ const Header = () => {
           </Nav>
           <Nav className='d-flex align-items-center'>
             <Nav.Link href="#deets">Profile</Nav.Link>
-             <Link to="/register"><Button variant='secondary'>Login</Button></Link> 
+             <Link to="/login"><Button variant='secondary'>Login</Button></Link> 
           </Nav>
         </Navbar.Collapse>
       </Container>
