@@ -1,0 +1,9 @@
+.footer{
+    background-color: black;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.col p{
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
