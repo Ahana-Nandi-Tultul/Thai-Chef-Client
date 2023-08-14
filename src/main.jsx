@@ -7,6 +7,7 @@ import {
 import router from './routes/Routes';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AuthProvider from './providers/AuthProvider';
+import 'react-tooltip/dist/react-tooltip.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
