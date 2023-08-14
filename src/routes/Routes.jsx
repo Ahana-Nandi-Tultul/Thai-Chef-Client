@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home/Home";
 import Recipes from "../pages/Recipes/Recipes/Recipes";
 import Register from "../pages/Login/Register/Register";
 import Login from "../pages/Login/Login/Login";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/recipes/:id',
-                element: <Recipes></Recipes>,
+                element:<PrivateRoute><Recipes></Recipes></PrivateRoute>,
                 loader: ({params}) => fetch(`https://thai-orchid-bistro-server-ahana-nandi-tultul.vercel.app/recipes/${params.id}`)
             },
             {
