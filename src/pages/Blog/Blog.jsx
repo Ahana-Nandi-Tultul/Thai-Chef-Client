@@ -1,19 +1,30 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { FaRegFilePdf } from 'react-icons/fa';
+import ReactToPdf from 'react-to-pdf/lib/index';
 
 const Blog = () => {
+    const comref = React.createRef();
+    const options = {
+        orientation: 'landscape',
+        unit: 'in',
+    };
     return (
         <div>
             <Navbar bg="success" data-bs-theme="dark">
                 <Container>
                 <Navbar.Brand href="#home">Welcome to Blogs!!!</Navbar.Brand>
                 <Nav className="ms-auto">
-                    <Nav.Link href="#pricing">Pricing</Nav.Link>
+                <ReactToPdf targetRef={comref} filename="answers.pdf" options={options}>
+                {({toPdf}) => (
+                        <Button variant="danger" onClick={toPdf}><FaRegFilePdf/></Button>
+                        )}
+                </ReactToPdf>
                 </Nav>
                 </Container>
             </Navbar>
             <div style={{marginTop: "100px"}}>
-                <Container>
+                <Container ref={comref}>
                     <h2 className='display-5 text-center fw-semibold mb-5'>Answer of Questions</h2>
                     <div>
                         <div className='mb-4'>
