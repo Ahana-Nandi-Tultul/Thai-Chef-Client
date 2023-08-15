@@ -4,26 +4,21 @@ import banner1 from '../../../assets/banner1.jpg';
 import banner2 from '../../../assets/banner2.jpg';
 import banner3 from '../../../assets/banner3.jpg';
 import './Banner.css'
-import LazyLoad from 'react-lazy-load';
 
 const Banner = () => {
     return (
         <div className='position-relative'>
                 <Carousel>
                     <Carousel.Item className='item' style={{height: "700px"}}>
-                        <LazyLoad height={500}>
+                        
                             <Image src={banner1} fluid text="First slide" className='opacity-75'/>
-                        </LazyLoad>
+                       
                     </Carousel.Item>
                     <Carousel.Item className='item' style={{height: "700px"}}>
-                        <LazyLoad height={500}>
                             <Image src={banner2} fluid text="First slide" className='opacity-75' />
-                        </LazyLoad>
                     </Carousel.Item>
                     <Carousel.Item className='item' style={{height: "700px"}}>
-                        <LazyLoad height={500}>
                             <Image src={banner3} fluid text="First slide" className='opacity-75' />
-                        </LazyLoad>
                     </Carousel.Item>
                 </Carousel>
                 <div className='banner-des'>

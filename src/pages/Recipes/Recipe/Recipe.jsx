@@ -18,7 +18,7 @@ const Recipe = ({recipe}) => {
             <Card.Img variant="top" src={image} style={{height: "250px"}}/>
             <Card.Body>
               <Card.Title className='display-6 fw-semibold'>{name}</Card.Title>
-              <Card.Text style={{height: "330px"}}>
+              <Card.Text>
                 <strong>Cooking Method</strong> {cooking_method}
               </Card.Text>
                 <span><strong>Ingredients:</strong></span>

@@ -3,7 +3,7 @@ import { useLoaderData, useParams } from 'react-router-dom';
 import Recipe from '../Recipe/Recipe';
 import { Col, Container, Image, Row } from 'react-bootstrap';
 import "./Recipes.css";
-import { FaThumbsUp } from 'react-icons/fa';
+import LazyLoad from 'react-lazy-load';
 
 const Recipes = () => {
     const chefid = useParams();
@@ -35,7 +35,9 @@ const Recipes = () => {
                             </ul>
                         </Col>
                         <Col sm={6}>
+                        <LazyLoad height={500}>
                             <Image src={picture} rounded className='w-100' style={{height: "700px"}} />
+                        </LazyLoad>
                         </Col>
                     </Row>
                 </Container>
