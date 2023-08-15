@@ -10,7 +10,6 @@ const Recipes = () => {
     const chef_id = chefid.id;
     const recipes = useLoaderData();
     const [chef, setChef] = useState({});
-    console.log(recipes);
     useEffect(()=> {
         fetch(`https://thai-orchid-bistro-server-ahana-nandi-tultul.vercel.app/chefs/${chef_id}`)
         .then(res => res.json())
@@ -44,7 +43,7 @@ const Recipes = () => {
             </div>
            <div style={{marginTop: "150px"}}>
             <Container>
-            <h2 className='display-5 fw-bold text-center mb-5'>Available Recipes</h2>
+            <h2 className='display-5 fw-bold text-center mb-5 mt-4'>Available Recipes</h2>
                 <Row xs={1} md={2} lg={3} className="g-4">
                 {
                         recipes.map(recipe => <Recipe

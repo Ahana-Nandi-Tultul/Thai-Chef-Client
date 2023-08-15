@@ -11,14 +11,17 @@ const Banner = () => {
                 <Carousel>
                     <Carousel.Item className='item' style={{height: "700px"}}>
                         
-                            <Image src={banner1} fluid text="First slide" className='opacity-75'/>
+                            <Image src={banner1} fluid text="First slide" style={{height: "700px"}}
+                             className='opacity-75 w-100'/>
                        
                     </Carousel.Item>
                     <Carousel.Item className='item' style={{height: "700px"}}>
-                            <Image src={banner2} fluid text="First slide" className='opacity-75' />
+                            <Image src={banner2} fluid text="First slide" style={{height: "700px"}}
+                             className='opacity-75 w-100' />
                     </Carousel.Item>
                     <Carousel.Item className='item' style={{height: "700px"}}>
-                            <Image src={banner3} fluid text="First slide" className='opacity-75' />
+                            <Image src={banner3} fluid text="First slide" style={{height: "700px"}}
+                             className='opacity-75 w-100' />
                     </Carousel.Item>
                 </Carousel>
                 <div className='banner-des'>

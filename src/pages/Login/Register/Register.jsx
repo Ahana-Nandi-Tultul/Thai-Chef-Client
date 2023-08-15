@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import './Register.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 
 
@@ -9,6 +9,10 @@ const Register = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const {createUser, updateProfileInfo} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    console.log(location)
+    const from = location?.state?.from?.pathname || '/';
 
     const handleRegister = event => {
         event.preventDefault();
@@ -18,7 +22,7 @@ const Register = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photo, email, password);
+        // console.log(name, photo, email, password);
         setError('');
         setSuccess('');
 
@@ -37,15 +41,14 @@ const Register = () => {
                 setError(m[0]);
             })
             const loggedUser = result.user;
-            console.log(loggedUser);
+            // console.log(loggedUser);
             setSuccess('Success!! You have created account successfully.')
             form.reset();
+            navigate(from, {replace: true});
         })
         .catch(error => {
-            console.log(error);
-            let m = error.message.split(':');
-            m = m[1].split('(');
-            setError(m[0]);
+            console.log(error.message)
+            setError(error.message);
         })
 
     }

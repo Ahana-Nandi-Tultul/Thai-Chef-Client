@@ -5,8 +5,9 @@ import { Spinner } from 'react-bootstrap';
 
 const PrivateRoute = ({children}) => {
     const {user, loading} = useContext(AuthContext);
-    console.log(loading);
+    // console.log(loading);
     const location = useLocation();
+    console.log(location)
     if(loading){
         return (
             <div className='d-flex justify-content-center  my-5'>
